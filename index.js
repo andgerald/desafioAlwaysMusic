@@ -1,3 +1,6 @@
+// tengo una duda en este ejercicio, para el tema de errores igual se controlan si yo le pong
+// not null al crear los campos de la tabla?
+
 const { Pool } = require("pg");
 
 const config = {
@@ -30,6 +33,7 @@ const nuevo = async ({ nombre, rutEstudiante, curso, nivel }) => {
     `INSERT INTO users (nombre,rut,curso,nivel) values ($1,$2,$3,$4)  RETURNING *`,
     [nombre, rutEstudiante, curso, nivel]
   );
+
   console.log(`Usuario ${nombre} agregado con éxito`);
   console.log("Usuario Agregado: ", res.rows[0]);
 };
